@@ -1,0 +1,19 @@
+{
+  "name": "nasa-project-api",
+  "version": "1.0.0",
+  "description": "NASA Mission Control API",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "watch": "nodemon src/server.js"
+  },
+  "keywords": [],
+  "author": "ThomasCode92",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
