@@ -21,4 +21,8 @@ app.use(morgan('combined')); // Request logger
 app.use('/planets', planetsRouter);
 app.use('/launches', launchesRouter);
 
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(publicFolder, 'index.html'));
+});
+
 module.exports = app;
