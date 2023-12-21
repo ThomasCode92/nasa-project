@@ -5,7 +5,8 @@
   "main": "src/server.js",
   "scripts": {
     "start": "node src/server.js",
-    "watch": "nodemon src/server.js"
+    "watch": "nodemon src/server.js",
+    "test": "jest ./tests"
   },
   "keywords": [],
   "author": "ThomasCode92",
@@ -17,6 +18,7 @@
     "morgan": "^1.10.0"
   },
   "devDependencies": {
+    "jest": "^29.7.0",
     "nodemon": "^3.0.1"
   }
 }
