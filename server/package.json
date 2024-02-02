@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node src/server.js",
     "watch": "nodemon src/server.js",
+    "pm2": "pm2",
     "cluster": "pm2 start src/server.js -i max",
     "test": "jest ./tests"
   },
