@@ -51,3 +51,11 @@ The following commands can be particularly beneficial during development:
 ```
 
 Executing the deploy command will initiate the server on port 8000. You can view the client application by visiting _localhost:8000_ in your browser. Additionally, the install-server command allows for the installation of a package specifically for the server, aiding in the management of server-side dependencies.
+
+**Improving Performance**<br />
+For better performance and the ability to manage increased request loads, the server can leverage [pm2](https://pm2.keymetrics.io/). PM2, a powerful tool designed for creating clusters, enables the deployment of multiple server instances. This clustering approach efficiently distributes the workload, optimizing resource utilization and thereby enhancing overall responsiveness.
+
+```bash
+  npm run deploy:cluster # view the (clustered) application as it would deploy on a real server
+  npm run pm2 --prefix server <PM2 COMMAND> # Run a specific pm2 command on the server
+```
