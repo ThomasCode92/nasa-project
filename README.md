@@ -24,7 +24,7 @@ The project consists of 3 npm packages
 - **_nasa-project_**: This is the root project that manages both the client and server components.
 
 **Architecture Diagram**<br />
-<img src="docs/architecture_diagram_v2.png" style="height: 350px" />
+<img src="docs/architecture_diagram_v3.png" style="height: 350px" />
 
 To initiate the application in development mode, execute the following command in the project's root directory: `npm run watch`<br />
 This command will launch the server on port 8000 and the client on port 3000. Make sure all the (client and server) dependencies are installed with `npm run install`.
