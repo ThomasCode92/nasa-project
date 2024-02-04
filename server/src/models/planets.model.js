@@ -3,6 +3,8 @@ const path = require('path');
 
 const { parse } = require('csv-parse');
 
+const planets = require('./planets.mongo');
+
 // prettier-ignore
 const keplerDataFile = path.join(__dirname, '..', '..', 'data', 'kepler_data.csv');
 const habitablePlanets = [];
@@ -20,9 +22,9 @@ function loadPlanetsData() {
   return new Promise((resolve, reject) => {
     fs.createReadStream(keplerDataFile)
       .pipe(parse({ comment: '#', columns: true }))
-      .on('data', data => {
+      .on('data', async data => {
         if (!isHabitablePlanet(data)) return;
-        habitablePlanets.push(data);
+        await planets.create({ keplerName: data.kepler_name });
       })
       .on('end', () => {
         console.log(`${habitablePlanets.length} habitable planets found!`);
