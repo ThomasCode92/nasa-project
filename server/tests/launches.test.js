@@ -3,18 +3,21 @@ const requests = require('supertest');
 const {
   mongoConnect,
   mongoDisconnect,
+  clearDatabase,
 } = require('../src/services/mongo.service');
+const { loadPlanetsData } = require('../src/models/planets.model');
 const app = require('../src/app');
 
+const USE_TEST_DB = true;
+
 beforeAll(async () => {
-  await mongoConnect();
+  await mongoConnect(USE_TEST_DB);
+  await loadPlanetsData();
 });
 
-afterAll(done => {
-  setTimeout(async () => {
-    await mongoDisconnect();
-    done();
-  }, 1000);
+afterAll(async () => {
+  await clearDatabase();
+  await mongoDisconnect();
 });
 
 describe('Test GET /launches', () => {
