@@ -1,5 +1,13 @@
 const requests = require('supertest');
+const dotenv = require('dotenv');
+dotenv.config();
+
 const app = require('../src/app');
+const { mongoConnect } = require('../src/services/mongo.service');
+
+beforeAll(async () => {
+  await mongoConnect();
+});
 
 describe('Test GET /launches', () => {
   test('should respond with correct content type and 200 success', async () => {

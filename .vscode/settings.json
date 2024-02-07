@@ -2,13 +2,15 @@
   // Extensions
   "gitlens.codeLens.recentChange.enabled": false,
   "gitlens.codeLens.authors.enabled": false,
-  "inlineFold.autoFold": false,
   "jest.jestCommandLine": "npm test --",
   "jest.rootPath": "./server",
   "jest.autoRun": {
     "watch": false,
     "onSave": "test-src-file",
     "onStartup": ["all-tests"]
+  },
+  "material-icon-theme.files.associations": {
+    "*.service.js": "javascript"
   },
 
   // IDE Config
