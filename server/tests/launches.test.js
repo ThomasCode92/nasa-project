@@ -1,12 +1,20 @@
 const requests = require('supertest');
-const dotenv = require('dotenv');
-dotenv.config();
 
+const {
+  mongoConnect,
+  mongoDisconnect,
+} = require('../src/services/mongo.service');
 const app = require('../src/app');
-const { mongoConnect } = require('../src/services/mongo.service');
 
 beforeAll(async () => {
   await mongoConnect();
+});
+
+afterAll(done => {
+  setTimeout(async () => {
+    await mongoDisconnect();
+    done();
+  }, 1000);
 });
 
 describe('Test GET /launches', () => {

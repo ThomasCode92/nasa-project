@@ -1,4 +1,7 @@
 const mongoose = require('mongoose');
+const dotenv = require('dotenv');
+
+dotenv.config();
 
 const MONGO_URL = `mongodb+srv://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@${process.env.MONGODB_CLUSTER}.gbekhgk.mongodb.net/${process.env.MONGODB_DATABASE}?retryWrites=true&w=majority`;
 
@@ -14,4 +17,8 @@ async function mongoConnect() {
   await mongoose.connect(MONGO_URL);
 }
 
-module.exports = { mongoConnect };
+async function mongoDisconnect() {
+  await mongoose.disconnect();
+}
+
+module.exports = { mongoConnect, mongoDisconnect };
