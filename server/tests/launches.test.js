@@ -1,5 +1,24 @@
 const requests = require('supertest');
+
+const {
+  mongoConnect,
+  mongoDisconnect,
+  clearDatabase,
+} = require('../src/services/mongo.service');
+const { loadPlanetsData } = require('../src/models/planets.model');
 const app = require('../src/app');
+
+const USE_TEST_DB = true;
+
+beforeAll(async () => {
+  await mongoConnect(USE_TEST_DB);
+  await loadPlanetsData();
+});
+
+afterAll(async () => {
+  await clearDatabase();
+  await mongoDisconnect();
+});
 
 describe('Test GET /launches', () => {
   test('should respond with correct content type and 200 success', async () => {
