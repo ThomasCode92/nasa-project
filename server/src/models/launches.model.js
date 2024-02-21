@@ -1,12 +1,27 @@
+const axios = require('axios');
+
 const launches = require('./launches.mongo');
 const planets = require('./planets.mongo');
 
 const DEFAULT_FLIGHT_NUMBER = 100;
+const SPACEX_API_URL = 'https://api.spacexdata.com/v4/launches/query';
 
 async function getLatestFlightNumber() {
   const latestLaunch = await launches.findOne().sort('-flightNumber');
   if (!latestLaunch) return DEFAULT_FLIGHT_NUMBER;
   return latestLaunch.flightNumber;
+}
+
+async function loadLaunchData() {
+  const response = await axios.post(SPACEX_API_URL, {
+    query: {},
+    options: {
+      populate: [
+        { path: 'rocket', select: { name: 1 } },
+        { path: 'payloads', select: { customers: 1 } },
+      ],
+    },
+  });
 }
 
 async function getAllLaunches() {
@@ -53,6 +68,7 @@ async function abortLaunchById(launchId) {
 }
 
 module.exports = {
+  loadLaunchData,
   getAllLaunches,
   findLaunchById,
   scheduleNewLaunch,
