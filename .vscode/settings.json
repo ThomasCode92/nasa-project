@@ -4,10 +4,9 @@
   "gitlens.codeLens.authors.enabled": false,
   "jest.jestCommandLine": "npm test --",
   "jest.rootPath": "./server",
-  "jest.autoRun": {
-    "watch": false,
-    "onSave": "test-src-file",
-    "onStartup": ["all-tests"]
+  "jest.runMode": {
+    "type": "on-save",
+    "testFileOnly": true
   },
   "material-icon-theme.files.associations": {
     "*.service.js": "javascript"

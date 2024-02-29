@@ -1,7 +1,4 @@
 const mongoose = require('mongoose');
-const dotenv = require('dotenv');
-
-dotenv.config();
 
 mongoose.connection.once('open', () => {
   console.log('MongoDB connection ready!');
@@ -12,7 +9,6 @@ mongoose.connection.on('error', err => {
 });
 
 async function mongoConnect(useTestDb) {
-  console.log(process.env.MONGO_TEST_URL);
   const dbUrl = useTestDb ? process.env.MONGO_TEST_URL : process.env.MONGO_URL;
   await mongoose.connect(dbUrl);
 }
