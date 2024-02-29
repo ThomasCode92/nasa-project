@@ -70,8 +70,8 @@ async function loadLaunchData() {
   await populateLaunches();
 }
 
-async function getAllLaunches() {
-  return await launches.find({}, { _id: 0, __v: 0 }).skip(10).limit(20);
+async function getAllLaunches(skip, limit) {
+  return await launches.find({}, { _id: 0, __v: 0 }).skip(skip).limit(limit);
 }
 
 async function saveLaunch(launch) {
