@@ -71,7 +71,7 @@ async function loadLaunchData() {
 }
 
 async function getAllLaunches() {
-  return await launches.find({}, { _id: 0, __v: 0 });
+  return await launches.find({}, { _id: 0, __v: 0 }).skip(10).limit(20);
 }
 
 async function saveLaunch(launch) {
