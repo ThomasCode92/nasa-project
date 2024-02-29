@@ -101,7 +101,7 @@ async function scheduleNewLaunch(launch) {
 
   const newLaunch = Object.assign(launch, {
     flightNumber: latestFlightNumber + 1,
-    target: planet,
+    target: planet.keplerName,
     upcoming: true,
     success: true,
     customers: ['Zero to Mastery', 'NASA'],
