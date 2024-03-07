@@ -8,7 +8,7 @@ const {
 const { loadPlanetsData } = require('../src/models/planets.model');
 const app = require('../src/app');
 
-const USE_TEST_DB = true;
+const USE_TEST_DB = !process.env.CI;
 
 beforeAll(async () => {
   await mongoConnect(USE_TEST_DB);
