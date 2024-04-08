@@ -18,16 +18,5 @@
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
-  },
-
-  // Workbench
-  "workbench.colorTheme": "GitHub Dark Default",
-  "workbench.colorCustomizations": {
-    "activityBarBadge.background": "#1f6feb",
-    "icon.foreground": "#1f6feb",
-    "statusBar.foreground": "#1f6feb",
-    "statusBarItem.remoteBackground": "#26a641",
-    "statusBarItem.remoteForeground": "#0e4429",
-    "statusBarItem.remoteHoverForeground": "#000"
   }
 }
